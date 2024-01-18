@@ -1,9 +1,9 @@
 import style from "./style.module.css";
 
-export default function Home() {
+export default function SignIn() {
   return (
     <section className={style.container}>
-      Home
+      SignIn
     </section>
   )
 }

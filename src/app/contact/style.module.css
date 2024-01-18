@@ -1,0 +1,8 @@
+.container {
+  composes: container from global;
+  max-width: 800px;
+  margin: 5em 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}

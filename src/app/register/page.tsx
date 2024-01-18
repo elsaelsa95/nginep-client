@@ -1,9 +1,9 @@
 import style from "./style.module.css";
 
-export default function Home() {
+export default function Register() {
   return (
     <section className={style.container}>
-      Home
+      Register
     </section>
   )
 }
