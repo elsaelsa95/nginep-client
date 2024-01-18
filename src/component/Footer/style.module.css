@@ -1,0 +1,53 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+  margin: 0.5em 3em;
+  border-top: 0.5px solid lightgray;
+  padding-top: 1em;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.title {
+  color: var(--first);
+  font-weight: 500;
+  font-size: 1.5em;
+}
+
+.socialmedia {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.socmed {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  color: gray;
+}
+
+.tutorial,
+.about,
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 1em;
+  }
+  .section {
+    flex-direction: column;
+  }
+}
