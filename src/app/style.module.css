@@ -1,8 +1,82 @@
 .container {
   composes: container from global;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 5em 2em;
   display: flex;
   flex-direction: column;
   gap: 5em;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 2.5em;
+  color: var(--first);
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 1em;
+  color: var(--third);
+}
+
+.heroImage {
+  width: 100%;
+  border-radius: 1em;
+  object-fit: cover;
+}
+
+.title2 {
+  font-weight: 500;
+  font-size: 1.5em;
+  color: var(--first);
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.place {
+  font-weight: 500;
+  font-size: 1.2em;
+  color: var(--first);
+}
+
+.city {
+  font-family: 400;
+  font-size: 1em;
+  color: var(--third);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1em;
+  margin-top: 1em;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
