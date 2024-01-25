@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  user-select: none;
+}
+
+.page {
+  cursor: pointer;
+  padding: 0.25em 1em;
+  border-radius: 12px;
+}
+
+.page[data-active="true"] {
+  background-color: var(--color-aqua-500);
+  color: var(--color-white);
+}
+
+.icon {
+  cursor: pointer;
+}

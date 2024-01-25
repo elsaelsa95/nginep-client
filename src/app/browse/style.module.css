@@ -1,8 +1,58 @@
 .container {
   composes: container from global;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 5em 2em;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 5em;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--first);
+  padding-top: 1em;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+  color: var(--third);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+.card {
+  width: auto;
+  min-height: 15em;
+  border-radius: 1em;
+}
+
+.grid2 {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.5em;
+  gap: 1em;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 400;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
