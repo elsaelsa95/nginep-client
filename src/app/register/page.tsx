@@ -1,9 +1,14 @@
+import FormUser from "@/component/FormUser";
 import style from "./style.module.css";
 
 export default function Register() {
   return (
     <section className={style.container}>
-      Register
+      <div className={style.header}>
+        <h1>Welcome to Nginep</h1>
+        <p>Create your account for better experience</p>
+      </div>
+      <FormUser />
     </section>
   )
 }

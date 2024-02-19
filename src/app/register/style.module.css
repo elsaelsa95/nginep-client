@@ -6,3 +6,8 @@
   flex-direction: column;
   gap: 5em;
 }
+
+.header {
+  text-align: center;
+  color: var(--first);
+}
