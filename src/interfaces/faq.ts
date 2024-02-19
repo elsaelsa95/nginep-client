@@ -1,5 +1,6 @@
 export interface Question {
     id: number
+    userId: number
     name: string
     date: string
     question: string
@@ -8,6 +9,7 @@ export interface Question {
 
 export interface Answer {
     id: number
+    userId: number
     name: string
     date: string
     answer: string
