@@ -1,4 +1,4 @@
-import FormUser from "@/component/FormUser";
+import FormRegister from "@/component/FormRegister";
 import style from "./style.module.css";
 
 export default function Register() {
@@ -8,7 +8,7 @@ export default function Register() {
         <h1>Welcome to Nginep</h1>
         <p>Create your account for better experience</p>
       </div>
-      <FormUser />
+      <FormRegister />
     </section>
   )
 }

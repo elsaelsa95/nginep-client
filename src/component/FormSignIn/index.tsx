@@ -10,22 +10,24 @@ type Inputs = {
     password: string
 }
 
-export default function FormUser() {
-    const uuid = Math.random().toString(36).slice(-6);
+export default function FormsignIn() {
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await fetch(`http://localhost:8080/user`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    id: uuid,
-                    name: data.fullName,
-                    password: data.password
-                })
-            })
-            router.push("/sign-in");
+            const response = await fetch(`http://localhost:8080/user`)
+            const allUser = await response.json()
+            const checkUsername = allUser.find((u: any) => u.name == data.fullName)
+
+            if (checkUsername) {
+                const checkPassword = checkUsername.password == data.password
+                if (checkPassword) {
+                    localStorage.setItem("id", checkUsername.id)
+                    localStorage.setItem("username", checkUsername.name)
+                    router.push("/")
+                }
+            }
+            return
         } catch (error) {
             return error;
         }
@@ -36,7 +38,7 @@ export default function FormUser() {
             <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
                 <input {...register("fullName", { required: true })} className={style.input} placeholder="Full Name" />
                 {errors.fullName && <span>This field is required</span>}
-                <input {...register("password", { required: true })} className={style.input} placeholder="Password" />
+                <input type="password" {...register("password", { required: true })} className={style.input} placeholder="Password" />
                 {errors.password && <span>This field is required</span>}
                 <Button> Submit</Button>
             </form>

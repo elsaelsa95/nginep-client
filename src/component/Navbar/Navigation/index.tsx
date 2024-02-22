@@ -12,6 +12,14 @@ export default function Navigation({
     isOpen?: boolean;
     onClick?: MouseEventHandler;
 }) {
+    let user
+    if (typeof window !== 'undefined') {
+        user = localStorage.getItem("username") ? JSON.stringify(localStorage.getItem("username")) : null;
+    }
+    const handleLogout = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
     const pathname = usePathname();
     const navigationItems = [
         {
@@ -29,16 +37,6 @@ export default function Navigation({
             href: "/contact",
             isActive: pathname === "/contact"
         },
-        {
-            title: "Sign In",
-            href: "/sign-in",
-            isActive: pathname === "/sign-in"
-        },
-        {
-            title: "Register",
-            href: "/register",
-            isActive: pathname === "/register"
-        }
     ];
 
     return (
@@ -58,6 +56,13 @@ export default function Navigation({
                     {item.title}
                 </Link>
             ))}
+            {!user && (
+                <>
+                    <Link href="/sign-in" data-is-active={pathname === "/sign-in"}> Sign In </Link>
+                    <Link href="/register" data-is-active={pathname === "/register"}> Register</Link>
+                </>
+            )}
+            {user && <Link href="/" onClick={handleLogout} className={style.buttonLogout}>Log Out</Link>}
         </div>
     );
 }
