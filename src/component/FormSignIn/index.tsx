@@ -40,7 +40,7 @@ export default function FormsignIn() {
                 {errors.fullName && <span>This field is required</span>}
                 <input type="password" {...register("password", { required: true })} className={style.input} placeholder="Password" />
                 {errors.password && <span>This field is required</span>}
-                <Button> Submit</Button>
+                <Button status={true}> Submit</Button>
             </form>
         </section>
     )

@@ -1,0 +1,37 @@
+.container {
+  composes: container from global;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 80%;
+}
+
+.input {
+  width: 100%;
+  height: 3.5em;
+  border-radius: 0.5em;
+  border: 0.5px solid var(--third);
+  padding: 1em;
+}
+
+.message {
+  width: 100%;
+  height: 7em;
+  border-radius: 0.5em;
+  border: 0.5px solid var(--third);
+  padding: 1em;
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
+  }
+}

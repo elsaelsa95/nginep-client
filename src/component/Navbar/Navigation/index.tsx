@@ -14,7 +14,7 @@ export default function Navigation({
 }) {
     let user
     if (typeof window !== 'undefined') {
-        user = localStorage.getItem("username") ? JSON.stringify(localStorage.getItem("username")) : null;
+        user = localStorage.getItem("username") ? localStorage.getItem("username") : null;
     }
     const handleLogout = () => {
         localStorage.clear()
@@ -62,7 +62,7 @@ export default function Navigation({
                     <Link href="/register" data-is-active={pathname === "/register"}> Register</Link>
                 </>
             )}
-            {user && <Link href="/" onClick={handleLogout} className={style.buttonLogout}>Log Out</Link>}
+            {user && <Link href="/" onClick={handleLogout}>Log Out</Link>}
         </div>
     );
 }

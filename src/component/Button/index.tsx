@@ -3,11 +3,19 @@ import style from "./style.module.css";
 export interface IButton {
     onClick?: () => void
     children: string
+    status?: boolean
 }
-export default function Button({ onClick, children }: IButton) {
+export default function Button({ onClick, children, status }: IButton) {
     return (
-        <button onClick={onClick} className={style.button}>
-            {children}
-        </button>
+        <>
+            {status == true ?
+                <button onClick={onClick} className={style.buttonActive}>
+                    {children}
+                </button> :
+                <button onClick={onClick} className={style.buttonInactive}>
+                    {children}
+                </button>
+            }
+        </>
     )
 }

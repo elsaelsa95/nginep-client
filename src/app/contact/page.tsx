@@ -1,17 +1,26 @@
+"use client"
+
 import style from "./style.module.css";
 import Accordion from "@/component/Accordion";
 import Form from "@/component/Form";
+import { useEffect, useState } from "react";
 
-async function getData() {
-  const res = await fetch(`http://localhost:8080/questions`)
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
+export default function Contact() {
+  const [questions, setQuestions] = useState([])
+  useEffect(() => {
+    const getQuestions = async () => {
+      const question = await fetchQuestions()
+      setQuestions(question)
+    }
+    getQuestions()
+  }, [])
+
+  const fetchQuestions = async () => {
+    const res = await fetch(`http://localhost:8080/questions`)
+    const data = await res.json()
+
+    return data
   }
-  return res.json()
-}
-
-export default async function Contact() {
-  const data = await getData()
   return (
     <section className={style.container}>
       <div>
@@ -19,7 +28,7 @@ export default async function Contact() {
         <p className={style.subtitle}>Have any questions? Feel free to contact us through the form below</p>
       </div>
       <Form />
-      <Accordion data={data} />
+      <Accordion data={questions} />
     </section>
   )
 }
