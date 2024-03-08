@@ -16,7 +16,7 @@ export default function FormRegister() {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await fetch(`http://localhost:3000/user`, {
+            const response = await fetch(`https://company-profile-server.vercel.app/user`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
