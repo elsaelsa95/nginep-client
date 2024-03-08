@@ -18,7 +18,7 @@ export default function Form() {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await fetch(`http://localhost:8080/questions`, {
+            const response = await fetch(`http://localhost:3000/questions`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

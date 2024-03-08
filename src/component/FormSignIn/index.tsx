@@ -15,7 +15,7 @@ export default function FormsignIn() {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await fetch(`http://localhost:8080/user`)
+            const response = await fetch(`http://localhost:3000/user`)
             const allUser = await response.json()
             const checkUsername = allUser.find((u: any) => u.name == data.fullName)
 

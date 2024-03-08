@@ -35,7 +35,7 @@ export default function FormReply({ questionId, question }: Inputs) {
                 answer: data.message
             }
             )
-            const response = await fetch(`http://localhost:8080/questions/${questionId}`, {
+            const response = await fetch(`http://localhost:3000/questions/${questionId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
