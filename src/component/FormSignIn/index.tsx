@@ -15,7 +15,7 @@ export default function FormsignIn() {
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const response = await fetch(`https://company-profile-server.vercel.app/user`)
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user`)
             const allUser = await response.json()
             const checkUsername = allUser.find((u: any) => u.name == data.fullName)
 

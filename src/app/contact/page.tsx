@@ -16,7 +16,7 @@ export default function Contact() {
   }, [])
 
   const fetchQuestions = async () => {
-    const res = await fetch(`https://company-profile-server.vercel.app/questions`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/questions`)
     const data = await res.json()
 
     return data
